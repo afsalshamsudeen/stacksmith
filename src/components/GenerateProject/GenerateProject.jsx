@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import "../GenerateProject/GenerateProject.css"
 
 const Container = styled.div` 
     display: flex;
@@ -88,14 +89,19 @@ const CSSFrameworkLabel = styled.label`
 
 const GenerateProject = () => {
 
-    const [selectedOption, setSeclectedOption] = useState(null)
-    const [selectedFramework, setSelectedFramework] = useState(null)
+    const [selectedOption, setSeclectedOption] = useState(false)
+    const [selectedFramework, setSelectedFramework] = useState(false)
+    const [ischecked, setIsChecked] = useState(false)
     const handleChange = (event) => {
         setSeclectedOption(event.target.value);
 
     }
     const handleSelect = (event) => {
         setSelectedFramework(event.target.value)
+    }
+
+    const handleCheck = (event) =>{
+        setIsChecked(event.target.value)
     }
   return (
     <Container>
@@ -182,6 +188,37 @@ const GenerateProject = () => {
             </div>
             
             <h1>Icon Libraries</h1>
+            <div className='checkbox'>
+                <label className='checkbox-des'>
+                    <input className='checkbox-des'
+                    type="checkbox"
+                    value="mui"
+                    checked= {ischecked === 'mui'}
+                    onChange={handleCheck}
+                     />
+                    Material UI
+                </label>
+
+                <label className='checkbox-des'>
+                    <input className='checkbox-des'
+                    type="checkbox"
+                    value="hicon"
+                    checked={ischecked === 'hicon'}
+                    onChange={handleCheck}
+                    />
+                    Hero Icons
+                </label>
+
+                <label className='checkbox-des'>
+                    <input className='checkbox-des'
+                    type="checkbox"
+                    value="fontawesome"
+                    checked={ischecked === 'fontawesome'}
+                    onChange={handleCheck}
+                    />
+                    Font Awesome
+                </label>
+            </div>
         </Wrapper>
     </Container>
   )

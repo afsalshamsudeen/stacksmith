@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Banner from '../components/Banner';
-import GenerateProject from '../components/GenerateProject';
+import GenerateProject from '../components/GenerateProject/GenerateProject.jsx';
+
 
 const Container = styled.div`
     display: flex;
