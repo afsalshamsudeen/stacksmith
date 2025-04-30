@@ -23,15 +23,15 @@ const LogoContainer = styled.div`
     
 `;
 const Logo = styled.img`
-    height: 26px;
-    width: 26px;
+    height: 30px;
+    width: 30px;
 `;
 const NavBar = () => {
   return (
     <Container>
       <LogoContainer>
         <Logo src={logo}/>
-        <h2>Stack Smith</h2>
+        <h2 className='text-lg font-poppins font-bold'>Stack Smith</h2>
       </LogoContainer>
     </Container>
   )
