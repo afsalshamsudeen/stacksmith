@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import "../GenerateProject/GenerateProject.css"
+import DropdownMenu from '../DropDown';
 
 const Container = styled.div` 
     display: flex;
@@ -86,6 +87,25 @@ const CSSFrameworkLabel = styled.label`
     color: #F8FAFC;
     
 `;
+
+const Button = styled.button`
+    background-color: #3B82F6;
+    outline: none;
+    color: aliceblue;
+    height: 40px;
+    width: 120px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: 700;
+    cursor: pointer;    
+`;
+
+
+const DropDownContext = React.createContext({
+    open: 'false',
+    setOpen:() =>{}
+})
 
 const GenerateProject = () => {
 
@@ -218,6 +238,10 @@ const GenerateProject = () => {
                     />
                     Font Awesome
                 </label>
+            </div>
+                <DropdownMenu/>
+            <div className='btn-div'>
+                <Button>Generate Project</Button>
             </div>
         </Wrapper>
     </Container>

@@ -37,8 +37,7 @@ const Banner = () => {
   return (
     <Container>
       <h1>🚀 Kickstart Your App<br/>in Seconds</h1>
-      <p>Choose your stack. Click generate. Start building</p>
-      <Button>Get Started</Button>
+      <p>Choose your stack. Click generate. Start building.</p>
     </Container>
   )
 }
