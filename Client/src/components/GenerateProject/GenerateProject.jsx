@@ -21,14 +21,7 @@ const Wrapper  = styled.div`
     padding: 20px;
     gap: 10px;
 
-    div{
-        display: flex;
-        
-        justify-content: flex-start;
-        flex-direction: column;
-        gap: 5px;
-        color: #F8FAFC;
-    }
+   
     h1{
         font-size: 1rem;
         color: #F8FAFC;
@@ -87,20 +80,6 @@ const CSSFrameworkLabel = styled.label`
     color: #F8FAFC;
     
 `;
-
-const Button = styled.button`
-    background-color: #3B82F6;
-    outline: none;
-    color: aliceblue;
-    height: 40px;
-    width: 120px;
-    border: none;
-    border-radius: 8px;
-    margin-top: 20px;
-    font-weight: 500;
-    cursor: pointer;    
-`;
-
 
 const DropDownContext = React.createContext({
     open: 'false',
@@ -165,7 +144,7 @@ const GenerateProject = () => {
             </Radiolabel>
 
             <h1>CSS Framework</h1>
-            <div>
+            <div className='flex flex-col items-start gap-2 text-slate-50'>
             <CSSFrameworkLabel>
             <RadioInput 
                     type='radio'
@@ -208,9 +187,19 @@ const GenerateProject = () => {
             </div>
             
             <h1>Icon Libraries</h1>
-            <div className='checkbox'>
-                <label className='checkbox-des'>
-                    <input className='checkbox-des'
+            <div className='flex-row items-start justify-center text-slate-50 '>
+            <label className='flex gap-5 cursor-pointer'>
+                    <input className='flex gap-5 cursor-pointer'
+                    type="checkbox"
+                    value="none"
+                    checked= {ischecked === 'none'}
+                    onChange={handleCheck}
+                     />
+                    None
+                </label>
+               
+                <label className='flex gap-5 cursor-pointer'>
+                    <input className='flex gap-5 cursor-pointer'
                     type="checkbox"
                     value="mui"
                     checked= {ischecked === 'mui'}
@@ -219,8 +208,8 @@ const GenerateProject = () => {
                     Material UI
                 </label>
 
-                <label className='checkbox-des'>
-                    <input className='checkbox-des'
+                <label className='flex gap-5 cursor-pointer'>
+                    <input className='flex gap-5 cursor-pointer'
                     type="checkbox"
                     value="hicon"
                     checked={ischecked === 'hicon'}
@@ -229,8 +218,8 @@ const GenerateProject = () => {
                     Hero Icons
                 </label>
 
-                <label className='checkbox-des'>
-                    <input className='checkbox-des'
+                <label className='flex gap-5 cursor-pointer'>
+                    <input className='flex gap-5 cursor-pointer'
                     type="checkbox"
                     value="fontawesome"
                     checked={ischecked === 'fontawesome'}
@@ -240,8 +229,9 @@ const GenerateProject = () => {
                 </label>
             </div>
                 <DropdownMenu/>
-            <div className='btn-div'>
-                <Button>Generate Project</Button>
+            <div className='flex flex-row justify-start w-full gap-4 mt-5'>
+                <button className='bg-blue-500 text-white px-4 py-2 rounded-md font-medium cursor-pointer hover:bg-blue-600'>Generate Project</button>
+                <button className='bg-blue-500 text-white px-4 py-2 rounded-md font-medium cursor-pointer hover:bg-blue-600'>Download</button>
             </div>
         </Wrapper>
     </Container>

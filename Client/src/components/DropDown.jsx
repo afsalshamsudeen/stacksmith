@@ -15,7 +15,7 @@ const DropdownMenu = () => {
     };
 
   return (
-    <div className='flex justify-start items-start bg-grey-100'>
+    <div className='flex justify-start items-start bg-grey-100 text-slate-50'>
         <div className='w-64'>
             <label htmlFor="options" className='block mb-2 text-base font-medium text-grey-700'>
                 Google Font
