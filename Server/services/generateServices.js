@@ -6,7 +6,7 @@ const {createFileFromConfig} = require('../utils/templateUtils')
 
 
 const generateReactProject = async (config) =>{
-    const tempDir = path.join(os.tempDir(), `generated-${Date.now()}`)
+    const tempDir = path.join(os.tmpDir(), `generated-${Date.now()}`)
     await fs.ensureDir(tempDir);
 
 
@@ -33,4 +33,4 @@ const zipDirectory = (sourceDir, outPath) =>{
     })
 }
 
-module.exports(generateReactProject)
+module.exports={generateReactProject}

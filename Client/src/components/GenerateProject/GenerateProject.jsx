@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import "../GenerateProject/GenerateProject.css"
 import DropdownMenu from '../DropDown';
+import axios from 'axios';
 
 const Container = styled.div` 
     display: flex;
@@ -102,6 +103,22 @@ const GenerateProject = () => {
     const handleCheck = (event) =>{
         setIsChecked(event.target.value)
     }
+
+    const generateProject = async (config) => {
+        const response = await axios.post('/api/projects/generate', config, {
+          responseType: 'blob', // Important! So browser knows it’s a binary file
+        });
+      
+        const blob = new Blob([response.data], { type: 'application/zip' });
+        const downloadUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = `${config.projectName}.zip`;
+        link.click();
+        window.URL.revokeObjectURL(downloadUrl);
+      };
+      
+
   return (
     <Container>
         <Wrapper>
@@ -230,7 +247,7 @@ const GenerateProject = () => {
             </div>
                 <DropdownMenu/>
             <div className='flex flex-row justify-start w-full gap-4 mt-5'>
-                <button className='bg-blue-500 text-white px-4 py-2 rounded-md font-medium cursor-pointer hover:bg-blue-600'>Generate Project</button>
+                <button onClick={generateProject} className='bg-blue-500 text-white px-4 py-2 rounded-md font-medium cursor-pointer hover:bg-blue-600'>Generate Project</button>
                 <button className='bg-blue-500 text-white px-4 py-2 rounded-md font-medium cursor-pointer hover:bg-blue-600'>Download</button>
             </div>
         </Wrapper>
