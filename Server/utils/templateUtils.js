@@ -18,7 +18,17 @@ const packageJson = {
     name: projectName,
     version: "1.0.0",
     private: true,
-    dependencies: {},
+    dependencies: {
+       react: "^18.0.0",
+       "react-dom": "^18.0.0"
+
+    },
+    devDependencies:{
+      vite: "^5.0.0",
+      "@vitejs/plugin-react": "^4.0.0",
+      eslint: "^8.0.0",
+      prettier: "^3.0.0"
+    },
     scripts: {
       dev: "vite",
       build: "vite build",
@@ -27,14 +37,50 @@ const packageJson = {
   };
 
   if (css === 'tailwind') {
-    packageJson.devDependencies = {
+      Object.assign(packageJson.devDependencies, {
       tailwindcss: "^3.0.0",
       autoprefixer: "^10.0.0",
       postcss: "^8.0.0"
-    };
+    });
   }
 
-  await fs.outputFile(path.join(targetDir, projectName, 'package.json'), packageJson, { space:2 });
+  await fs.outputFile(
+    path.join(targetDir, projectName, 'package.json'),
+    JSON.stringify(packageJson, null, 2)
+  );
+  
+  await fs.outputFile(
+    path.join(targetDir, projectName, 'vite.config.js'),
+    `import { defineConfig } from 'vite'
+  import react from '@vitejs/plugin-react'
+  
+  export default defineConfig({
+    plugins: [react()],
+  })`
+  );
+  
+  await fs.outputFile(
+    path.join(targetDir, projectName, '.eslintrc.json'),
+    `{
+    "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+    "plugins": ["react"],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {}
+  }`
+  );
+  
 
   await fs.outputFile(
     path.join(targetDir, projectName, 'index.html'),

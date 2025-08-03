@@ -6,7 +6,7 @@ const {createFileFromConfig} = require('../utils/templateUtils')
 
 
 const generateReactProject = async (config) =>{
-    const tempDir = path.join(os.tmpDir(), `generated-${Date.now()}`)
+    const tempDir = path.join(os.tmpdir(), `generated-${Date.now()}`)
     await fs.ensureDir(tempDir);
 
 

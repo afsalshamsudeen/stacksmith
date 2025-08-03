@@ -1,9 +1,9 @@
-const {generateYourProject} = require('../services/generateServices.js');
+const {generateReactProject} = require('../services/generateServices.js');
 
 const generateProject = async (req, res) =>{
     try{
         const config = req.body;
-        const zipBuffer = await generateYourProject(config);
+        const zipBuffer = await generateReactProject(config);
 
         res.set({
             'Content-Type' : 'application/zip',
