@@ -22,10 +22,10 @@ With one click, generate a ready-to-code React.js project pre-configured with yo
 1. Clone the repository:
    ```bash
    git clone https://github.com/afsalshamsudeen/stacksmith.git
-   cd stacksmith
+   cd stacksmith```
 2.Install dependencies:
     ```bash
-    npm install
+    npm install```
 3.Run the app locally:
     ```bash
-    npm run dev
+    npm run dev```
