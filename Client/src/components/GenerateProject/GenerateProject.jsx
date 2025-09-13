@@ -4,6 +4,7 @@ import "../GenerateProject/GenerateProject.css"
 import DropdownMenu from '../DropDown';
 import axios from 'axios';
 
+
 const Container = styled.div` 
     display: flex;
     flex-direction: column;
@@ -93,6 +94,7 @@ const GenerateProject = () => {
     const [selectedFramework, setSelectedFramework] = useState(false)
     const [projectName, setProjectName] = useState('');
     const [selectedIcons, setSelectedIcons] = useState([]);
+    const API_KEY = import.meta.env.VITE_API_KEY;
 
     
     const handleChange = (event) => {
@@ -112,7 +114,7 @@ const GenerateProject = () => {
     }
 
     const generateProject = async (config) => {
-        const response = await axios.post('http://localhost:3000/api/projects/generate', config, {
+        const response = await axios.post(`${API_KEY}api/projects/generate`, config, {
           responseType: 'blob', // Important! So browser knows it’s a binary file
         });
       
