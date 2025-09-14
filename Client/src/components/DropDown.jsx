@@ -15,16 +15,16 @@ const DropdownMenu = () => {
     };
 
   return (
-    <div className='flex justify-start items-start bg-grey-100 text-slate-50'>
-        <div className='w-64'>
-            <label htmlFor="options" className='block mb-2 text-base font-medium text-grey-700'>
+    <div className='flex justify-start items-start text-slate-50'>
+        <div className='w-64 '>
+            <label htmlFor="options" className='block mb-2 text-base font-medium text-grey-700 mt-6'>
                 Google Font
             </label>
             <select
                 id='options'
                 value={selectedOption}
                 onChange={handleChange}
-                className='block w-80 px-3 py-2 border border-grey-100 rounded-md shadow-sm focus:outline-none focus:ring-blue-300 cursor-pointer'
+                className='mt-4 block w-80 px-3 py-2 border border-grey-100 bg-[#1E293B] rounded-md shadow-sm focus:outline-none focus:ring-blue-300 cursor-pointer'
             >
                 <option value="">Select font</option>
                 <option value="robot" className='font-roboto'>Roboto</option>

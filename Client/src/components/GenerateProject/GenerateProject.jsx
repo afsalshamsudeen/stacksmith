@@ -13,30 +13,18 @@ const Container = styled.div`
     margin-top: 50px;
 `;
 const Wrapper  = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 400px;
-    height: auto;
-    background-color: #1E293B;
-    border-radius: 8px;
-    padding: 20px;
-    gap: 10px;
+   
 
    
-    h1{
-        font-size: 1rem;
-        color: #F8FAFC;
-        font-weight: 500;
-    }
+   
 `;
 
 const Input = styled.input`
-    width: 300px;
+    width: auto;
     outline: none;
     padding: 8px;
     background: transparent;
-    color: #fff;
+    color: #ffff;
     border-radius: 3px;
     border: 1px solid #121825;
     box-shadow: none;
@@ -129,16 +117,17 @@ const GenerateProject = () => {
       
 
   return (
-    <Container>
-        <Wrapper>
-            <h1>Project Name</h1>
-            <Input 
+    <Container >
+        <div className='flex flex-col justify-items-start h-auto w-200 p-10 gap-3 m-8  bg-[#1E2938]  shadow-xl shadow-cyan-600 rounder-xl'>
+
+            <h1 className='text-2xl text-[#F8FAFC] font-medium'>Project Name</h1>
+            <Input
             placeholder='Enter your project name'
             value={projectName}
             onChange={(e)=> setProjectName(e.target.value)}
                 ></Input>
 
-            <h1>Framework</h1>
+            <h1 className='text-lg text-[#F8FAFC] font-medium mt-6'>Framework</h1>
             
             <Radiolabel>
                 <RadioInput 
@@ -146,6 +135,7 @@ const GenerateProject = () => {
                     value='react'
                     checked = {selectedOption === 'react'}
                     onChange={handleChange}
+                    className='w-5 h-5 text-purple-400 border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none checked:ring-2 checked:ring-purple-500'
                 />
                 React JS
 
@@ -174,7 +164,7 @@ const GenerateProject = () => {
                 Vue JS
             </Radiolabel>
 
-            <h1>CSS Framework</h1>
+            <h1 className='text-lg text-[#F8FAFC] font-medium mt-6'>CSS Framework</h1>
             <div className='flex flex-col items-start gap-2 text-slate-50'>
             <CSSFrameworkLabel>
             <RadioInput 
@@ -217,7 +207,7 @@ const GenerateProject = () => {
             </CSSFrameworkLabel>
             </div>
             
-            <h1>Icon Libraries</h1>
+            <h1 className='text-lg text-[#F8FAFC] font-medium mt-6'>Icon Libraries</h1>
             <div className='flex-row items-start justify-center text-slate-50 '>
             <label className='flex gap-5 cursor-pointer'>
                     <input className='flex gap-5 cursor-pointer'
@@ -260,7 +250,7 @@ const GenerateProject = () => {
                 </label>
             </div>
                 <DropdownMenu/>
-            <div className='flex flex-row justify-center w-full gap-4 mt-5'>
+            <div className='flex flex-row justify-center w-full gap-4 mt-8'>
                 <button onClick={()=> generateProject({
                     projectName,
                     framework: selectedOption,
@@ -269,7 +259,8 @@ const GenerateProject = () => {
                 })} className='bg-blue-500 text-white px-4 py-2 rounded-md font-medium cursor-pointer hover:bg-blue-600 '>Generate Project</button>
                 
             </div>
-        </Wrapper>
+        
+        </div>
     </Container>
   )
 }
