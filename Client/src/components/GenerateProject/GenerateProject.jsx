@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import "../GenerateProject/GenerateProject.css"
 import DropdownMenu from '../DropDown';
 import axios from 'axios';
@@ -7,38 +6,7 @@ import axios from 'axios';
 
 
 
-const RadioInput = styled.input`
-    cursor: pointer;
-    background-color: transparent;
-    appearance: none;
-    box-shadow: none;
-    accent-color: #3B82F6;
-    border: 1px solid #121825;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    position: relative;
 
-  &:checked::before {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 8px;
-    height: 8px;
-    background-color: #636363;
-    border-radius: 50%;
-  }
-`;
-
-const CSSFrameworkLabel = styled.label`
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 5px;
-    color: #F8FAFC;
-    
-`;
 
 const DropDownContext = React.createContext({
     open: 'false',
@@ -87,9 +55,9 @@ const GenerateProject = () => {
 
   return (
     <div className='flex flex-col items-center justify-center mt-12 '>
-        <div className='flex flex-col justify-start h-auto w-100 p-6 gap-3 m-4  bg-[#1E2938]  shadow-xl shadow-cyan-600 rounder-xl md:h-auto md:w-200 md:p-10 md:gap-3 md:m-8'>
+        <div className='flex flex-col justify-start h-auto w-80 p-6 gap-3 m-4  bg-[#1E2938]  shadow-xl shadow-cyan-600 rounder-xl md:h-auto md:w-200 md:p-10 md:gap-3 md:m-8'>
 
-            <h1 className='text-2xl text-[#F8FAFC] font-medium'>Project Name</h1>
+            <h1 className='text-sm text-[#F8FAFC] font-medium md:text-2xl'>Project Name</h1>
             <input 
             className='w-auto outline-none p-2 bg-transparent text-white rounded-[3px] border border-[#121825] shadow-none'
             placeholder='Enter your project name'
