@@ -54,8 +54,8 @@ const GenerateProject = () => {
       
 
   return (
-    <div className='flex flex-col items-center justify-center mt-12 '>
-        <div className='flex flex-col justify-start h-auto w-80 p-6 gap-3 m-4  bg-[#1E2938]  shadow-xl shadow-cyan-600 rounder-xl md:h-auto md:w-200 md:p-10 md:gap-3 md:m-8'>
+    <div className='flex flex-col items-center justify-center mt-2 '>
+        <div className='flex flex-col justify-start h-auto w-75 p-6 gap-3 m-4  bg-[#1E2938]  shadow-xl shadow-cyan-600 rounder-xl md:h-auto md:w-200 md:p-10 md:gap-3 md:m-8'>
 
             <h1 className='text-sm text-[#F8FAFC] font-medium md:text-2xl'>Project Name</h1>
             <input 

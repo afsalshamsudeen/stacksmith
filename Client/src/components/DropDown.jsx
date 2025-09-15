@@ -24,7 +24,7 @@ const DropdownMenu = () => {
                 id='options'
                 value={selectedOption}
                 onChange={handleChange}
-                className='mt-4 block w-80 px-3 py-2 border border-grey-100 bg-[#1E293B] rounded-md shadow-sm focus:outline-none focus:ring-blue-300 cursor-pointer'
+                className='mt-4 block w-50 px-3 py-2 border border-grey-100 bg-[#1E293B] rounded-md shadow-sm focus:outline-none focus:ring-blue-300 cursor-pointer md:w-80'
             >
                 <option value="">Select font</option>
                 <option value="robot" className='font-roboto'>Roboto</option>
